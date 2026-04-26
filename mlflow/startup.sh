@@ -2,7 +2,9 @@
 echo 'starting mlflow server...'
 
 exec mlflow server \
-    --backend-store-uri $DB_URL \
+    --backend-store-uri "$DB_URL" \
     --artifacts-destination s3://bucket \
-    --host :: \
-    --port ${PORT:-5000}
+    --host 0.0.0.0 \
+    --port "${PORT:-5000}" \
+    --allowed-hosts all \
+    --cors-allowed-origins "*"
