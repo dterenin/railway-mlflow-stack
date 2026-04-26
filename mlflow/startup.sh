@@ -8,3 +8,4 @@ exec mlflow server \
     --port "${PORT:-5000}" \
     --allowed-hosts all \
     --cors-allowed-origins "*"
+    --workers 1
